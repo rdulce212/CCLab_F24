@@ -13,7 +13,7 @@ function setup() {
     canvas.parent("p5-canvas-container");
   x = random(width);
   y = random(height);
-  img = loadImage("/assets/axe.jpeg");
+  img = loadImage("../assets/axe.jpeg"); 
 }
 function draw() {
 if (jumpScareActive) {
@@ -42,12 +42,16 @@ if (jumpScareActive) {
       jumpScareCounter = 0;
     }
   }
-  if (mouseIsPressed) {
-    x = lerp(x, mouseX, -0.05);
-    y = lerp(y, mouseY, -0.05);
-  } else {
+  if (mouseOnCanvas()){
+    if (mouseIsPressed) {
+      x = lerp(x, mouseX, -0.05);
+      y = lerp(y, mouseY, -0.05);
+  }else {
     x = lerp(x, mouseX, 0.05);
     y = lerp(y, mouseY, 0.05);
+  }
+  }else{
+    move();
   }
   if (keyIsPressed) {
     if (key == "k") {
@@ -89,7 +93,9 @@ function move() {
     }
   }
 }
-
+function mouseOnCanvas(){
+  return mouseX >= 0 && mouseX <= width && mouseY >= 0 && mouseY <= height;
+}
 function drawCreature() {
   noStroke();
   fill(0);
