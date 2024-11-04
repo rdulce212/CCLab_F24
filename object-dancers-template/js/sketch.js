@@ -11,7 +11,8 @@
 */
 
 let dancer;
-
+let u= 0 
+let v= 0
 function setup() {
   let canvas = createCanvas(windowWidth, windowHeight);
   canvas.parent("p5-canvas-container");
@@ -34,12 +35,18 @@ class Mosquito {
     this.x = startX;
     this.y = startY;
     // add properties for your dancer here:
-    //..
-    //..
+    this.u = 0;
+    this.v = 0;
+    this.bodyColor= color(255);
+    this.eyeColor = color(255,0,0);
+    this.hatColor = color(210,180,140);
+    this.hatColor2 = color(0);
   }
   update() {
     // update properties here to achieve
     // your dancer's desired moves and behaviour
+    this.v = sin(frameCount * 0.1) *10
+    this.u = cos(frameCount * 0.05) * 5;
   }
   display() {
     // the push and pop, along with the translate 
@@ -51,26 +58,36 @@ class Mosquito {
     // ******** //
     // ⬇️ draw your dancer from here ⬇️
 
-    //body
-    fill(173,216,230);
-    arc(0, 0, 30, 50);
-    arc(0, 0,100,50);
-    fill(255);
-    ellipse(0, 0+20, 25,50);
-    triangle (0, 0+80, 0-6, 0+45, 0-3, 0+45, 0+15, 0+45, 0-15, 0+45);
-    triangle (0, 0+80, 0+6, 0+45, 0+3, 0+45, 0+15, 0+45, 0+15, 0+45);
+    fill(this.bodyColor);
+    //legs 
+    triangle (this.u-10, this.v+80, this.u-8, this.v+40, this.u-2, this.v+40);
+    triangle (this.u+10, this.v+80, this.u+8, this.v+40, this.u+2, this.v+40);
+    triangle (this.u-10, this.v+130, this.u-6, this.v+70, this.u-10, this.v+70);
+    triangle (this.u+10, this.v+130, this.u+6, this.v+70, this.u+10, this.v+70);
+    circle (this.u-8, this.v+70, 6);
+    circle(this.u+8, this.v+70, 6);
+    //arms 
+    triangle(this.u-35,this.v+20, this.u-5, this.v+23, this.u-5, this.v+15);
+    triangle(this.u+35, this.v+20, this.u+5, this.v+23, this.u+5, this.v+15);
+    triangle(this.u+70, this.v+50, this.u+30, this.v+22, this.u+30, this.v+18);
+    triangle(this.u-70, this.v+50, this.u-30, this.v+22, this.u-30, this.v+18);
+    circle(this.u-30, this.v+20, 6);
+    circle(this.u+30, this.v+20, 6);
+    //body 
+    ellipse(this.u, this.v+20, 20,55);
     //head 
-    circle(0, 0, 30);
+    circle(this.u, this.v, 30);
     noStroke();
-    fill(255,0,0);
-    circle (0-8, 0, 5);
-    circle (0+8, 0, 5);
-
-
-
-
-
-
+    fill(this.eyeColor);
+    circle (this.u-8, this.v, 5);
+    circle (this.u+8, this.v, 5);
+    //hat
+    fill(this.hatColor);
+    ellipse(this.u, this.v-30, 50, 10); 
+    ellipse(this.u+5, this.v-40, 15, 25);
+    ellipse(this.u-5, this.v-40, 15, 25);
+    fill(this.hatColor2);
+    rect(this.u-12, this.v-36, 24, 2);
 
     // ⬆️ draw your dancer above ⬆️
     // ******** //
@@ -96,8 +113,6 @@ class Mosquito {
     stroke(0);
   }
 }
-
-
 
 /*
 GOAL:
