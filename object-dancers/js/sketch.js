@@ -46,6 +46,8 @@ class Mosquito {
     // update properties here to achieve
     // your dancer's desired moves and behaviour
     this.v = sin(frameCount * 0.1) *10
+
+    
     this.u = cos(frameCount * 0.05) * 5;
   }
   display() {
