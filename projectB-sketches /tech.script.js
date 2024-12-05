@@ -29,14 +29,14 @@ function setting (){
     fill(0);
     rect(width/4-150, height/2+100, width, 300);
     fill(255);
-    text('As a society we have moved forward.', width/2+50, height/2+130);
-    text('<-- -->', width/2+130, height/2+150);
+    textSize(18);
+    text('No matter our differences.', width/2+50, height/2+150);
 }
 
 
 function bill() {
     noStroke();
-    fill (220);
+    fill (random(255), random(255), random(255));
     rect(x, y+70, 20, 30);
     circle(x+10, y +60, 20);
 
