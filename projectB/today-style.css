@@ -19,10 +19,6 @@ body{
     background-color:rgb(211, 213, 215);
     width: 40%;
  }
- .box-3{
-    background-color: aqua;
-    /* visibility: hidden; */
- }
  .flexbox-content {
    display: flex;
    justify-content: space-evenly; 
@@ -37,8 +33,6 @@ body{
     margin: auto;
     flex-wrap: wrap;
   }
-
-
  .big{
     width: 100%;
     background-color:rgb(211, 213, 215);
@@ -61,8 +55,6 @@ body{
     justify-content:space-between;
     padding: 20px;
  }
-
- 
 
  #navigation a:hover{
     color: blue; 
