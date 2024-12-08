@@ -7,17 +7,20 @@ body{
  }
 
   .box{
-    padding: 80px 40px;
+   box-sizing: border-box;
+    padding: 5px 5px;
     margin: 5px;
  }
  .box-1{
     background-color:rgb(211, 213, 215);
     width: 40%;
+    height: 400px;
     /* display: none; */
  }
  .box-2{
     background-color:rgb(211, 213, 215);
     width: 40%;
+    height: 400px;
  }
  .flexbox-content {
    display: flex;
@@ -50,6 +53,13 @@ body{
     font-weight: 600;
     padding:5px;
  }
+ .frame-1{
+   /* display: block; */
+   width: 100%;;
+   height:100%;
+   border: none;
+   object-fit: cover;
+}
  #navigation {
     display: flex;
     justify-content:space-between;

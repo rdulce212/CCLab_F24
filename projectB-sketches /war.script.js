@@ -3,7 +3,7 @@ let y;
 let o;
 let p;
 function setup (){
-    let canvas = createCanvas(600, 400);
+    let canvas = createCanvas(800, 500);
     canvas.parent("p5-container");
     y = height/2;
     o= width/2
@@ -14,46 +14,64 @@ function draw(){
     background (255);
     setting();
     bill();
-    oops(400,200);
-    oops(350,200);
-
+    oops(width/2 +50,height/2);
+    oops(width/2 +10,height/2-100);
+    let d = dist(x, y, o, p);
    if (keyIsPressed){
     if (keyCode=== LEFT_ARROW) {
         //update bill
-        x-=2
+        x-=2;
     }else if (keyCode===RIGHT_ARROW){
         //update bill
-        x+=2
+        x+=2;
+    }
+   }
+   if (keyIsPressed){
+    if (keyCode=== UP_ARROW) {
+        //update bill
+        y-=2;
+    }else if (keyCode===DOWN_ARROW){
+        //update bill
+        y+=2;
     }
    }
    if (x<0){
-    x = 20
+    x = 20;
    }
-}
+   if(x>width){
+    textAppear();
+   }
+   if (d<20){
+    x = 20;
+    y = height/2;
+   }
 
+}
+function textAppear() {
+    textSize(20);
+    fill(255,0,0);
+    text('Will we have failed to resolve our conflicts', width/2+20, height/2);
+}
 function setting (){
     fill(0);
-    rect(width/4-150, height/2+100, width, 300);
-    rect(width/4-150, height/2-30, width, 70);
-    fill(255);
-    textSize(12);
-    text('Will we have failed to resolve our conlifts', width/2+50, height/2+150);
+    rect(0, height/2+100, width, 300);
+    rect(0, height/2-100, width, 70);
     //buildings
     fill(220);
-    rect(width/4, height/4+60, 60,80);
-    rect(width/4+100, height/4+40, 70,100);
-    rect(width/4+150, height/4+60, 60,80);
-    rect(width/4+280, height/4+10, 90,130);
+    rect(width/4, height/4-10, 60,105);
+    rect(width/4+100, height/4-30, 70,125);
+    rect(width/4+150, height/4-10, 60,105);
+    rect(width/4+280, height/4-60, 90,155);
     //more buildings 
-    rect(width/4-70, height/2+120, 60,80);
-    rect(width/4+70, height/4+170, 90,130);
+    rect(width/4-70, height/2+120, 60,150);
+    rect(width/4+70, height/4+170, 90,205);
     //fire
     fill(255, 0,0);
-    arc(width/4+290, height/4+30, 50, 60, 0, PI);
-    triangle (width/4+290, height/4-30, width/4+290, height/4+30, width/4+315, height/4+30);
-    triangle (width/4+270, height/4-10, width/4+265, height/4+30, width/4+300, height/4+30);
+    arc(width/4+290, height/4-40, 50, 60, 0, PI);
+    triangle (width/4+290, height/4-100, width/4+290, height/4-40, width/4+315, height/4-40);
+    triangle (width/4+270, height/4-80, width/4+265, height/4-40, width/4+300, height/4-40);
 }
-
+220
 
 function bill() {
     noStroke();

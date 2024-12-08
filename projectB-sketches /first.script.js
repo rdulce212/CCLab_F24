@@ -1,7 +1,7 @@
 let x=20;
 let y;
 function setup (){
-    let canvas = createCanvas(600, 400);
+    let canvas = createCanvas(800, 500);
     canvas.parent("p5-container");
     y = height/2;
 }
@@ -14,25 +14,31 @@ function draw(){
    if (keyIsPressed){
     if (keyCode=== LEFT_ARROW) {
         //update bill
-        x-=2
+        x-=3
     }else if (keyCode===RIGHT_ARROW){
         //update bill
-        x+=2
+        x+=3
     }
    }
    if (x<0){
     x = 20
    }
+   if(x>width){
+    textAppear();
+   }
 }
 
 function setting (){
     fill(0);
-    rect(width/4-150, height/2+100, width, 300);
-    fill(255);
-    text('As a society we have moved forward.', width/2+50, height/2+130);
-    text('<-- -->', width/2+130, height/2+150);
+    rect(0, height/2+100, width, 300);
+    // text('<-- -->', width/2+130, height/2+150);
 }
 
+function textAppear() {
+    textSize(20);
+    fill(255,0,0);
+    text('As a society we have moved forward.', width/2+20, height/2-100);
+}
 
 function bill() {
     noStroke();

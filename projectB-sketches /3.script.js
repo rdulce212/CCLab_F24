@@ -1,7 +1,7 @@
 let x=20;
 let y;
 function setup (){
-    let canvas = createCanvas(600, 400);
+    let canvas = createCanvas(800, 500);
     canvas.parent("p5-container");
     y = height/4;
 }
@@ -14,25 +14,27 @@ function draw(){
    if (keyIsPressed){
     if (keyCode=== LEFT_ARROW) {
         //update bill
-        x+=2
+        x+=3
     }else if (keyCode===RIGHT_ARROW){
         //update bill
-        x-=2
+        x-=3
     }
    }
    if (x<0){
     x = 20
    }
-
+   if(x>width){
+    textAppear();
+   }
 }
-
+function textAppear() {
+    textSize(20);
+    fill(255,0,0);
+    text('Or if we function differently.', width/2+20, height/2-100);
+}
 function setting (){
     fill(0);
-    rect(width/4-150, height/4-200, width, 200);
-    fill(0);
-    textSize(18);
-    text('Or if we function differently.', width/2+50, height/2+130);
-    text('-->  <--', width/2+120, height/2+150);
+    rect(0, height/4-200, width, 200);
 }
 
 

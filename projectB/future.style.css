@@ -6,26 +6,28 @@ body{
 
  }
 #sub-title{
-    font-size: 20px;
+    font-size: 1cm;
     font-family: 'Courier New', Courier, monospace;
     text-align:center;
+    padding: 50px;
 }
   .box{
-    padding: 0px;
+    padding: 5px 5px;
     margin: 5px;
  }
  .box-1{
     background-color:rgb(211, 213, 215);
-    width: 50%;
-    height: 300px;
+    width: 800px;
+    height: 500px;
     /* justify-content:center; */
     /* display: none; */
  }
  .box-2{
     background-color:rgb(211, 213, 215);
-    width: 50%;
-    height: 300px;
+    width: 800px;
+    height: 500px;
  }
+
 
  .flexbox-content-2{
     display: flex;
@@ -34,11 +36,12 @@ body{
     margin: auto;
     flex-wrap: wrap;
   }
-.iframe-1{
+.frame-1{
     /* display: block; */
     width: 100%;;
     height:100%;
     border: none;
+    object-fit: cover;
 }
  #navigation {
     display: flex;
