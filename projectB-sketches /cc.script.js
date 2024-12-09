@@ -41,8 +41,8 @@ function draw(){
 function textAppear(){
     fill(255,0,0);
     textSize(20);
-    text('Are we forced to live on water',  width/2+20, height/2-100);
-    text('scouring the earth for livable land',  width/2+20, height/2-100+20); 
+    text('But have we been forced to live on water',  width/2+20, height/2-100);
+    text('scouring the earth for livable land?',  width/2+20, height/2-100+20); 
 }  
 function setting (){
     //ship

@@ -63,7 +63,7 @@ function draw(){
 function textAppear() {
     textSize(20);
     fill(255,0,0);
-    text('Will we have failed to resolve our conflicts.', width/2+20, height/2+170);
+    text('Will we have failed to resolve our conflicts?', width/2+20, height/2+170);
 }
 function setting (){
     fill(0);
