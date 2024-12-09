@@ -2,6 +2,7 @@ let x=20;
 let y;
 let o;
 let p;
+let boom = [];
 function setup (){
     let canvas = createCanvas(800, 500);
     canvas.parent("p5-container");
@@ -15,8 +16,13 @@ function draw(){
     setting();
     bill();
     oops(width/2 +50,height/2);
-    oops(width/2 +10,height/2-100);
-    let d = dist(x, y, o, p);
+    oops(width/2 -50,height/2-100);
+    oops(width/2 +200,height/2-100);
+    oops(width/2 +200,height/2+140);
+    let d = dist(x, y, width/2 +50,height/2);
+    let d2 = dist(x, y, width/2 -50,height/2-100);
+    let d3 = dist(x, y, width/2 +200,height/2-100);
+    let d4 = dist(x, y, width/2 +200,height/2+140);
    if (keyIsPressed){
     if (keyCode=== LEFT_ARROW) {
         //update bill
@@ -41,19 +47,27 @@ function draw(){
    if(x>width){
     textAppear();
    }
-   if (d<20){
+   if (d<15||d2<15|| d3<15|| d4<15){
     x = 20;
     y = height/2;
    }
-
+   for (let i = boom.length - 1; i >= 0; i--) {
+    boom[i].display();
+    boom[i].update();
+    if (boom[i].s > 50){
+        boom.splice(i, 1);
+    }
+    }
 }
+
 function textAppear() {
     textSize(20);
     fill(255,0,0);
-    text('Will we have failed to resolve our conflicts', width/2+20, height/2);
+    text('Will we have failed to resolve our conflicts.', width/2+20, height/2+170);
 }
 function setting (){
     fill(0);
+    noStroke();
     rect(0, height/2+100, width, 300);
     rect(0, height/2-100, width, 70);
     //buildings
@@ -71,7 +85,7 @@ function setting (){
     triangle (width/4+290, height/4-100, width/4+290, height/4-40, width/4+315, height/4-40);
     triangle (width/4+270, height/4-80, width/4+265, height/4-40, width/4+300, height/4-40);
 }
-220
+
 
 function bill() {
     noStroke();
@@ -85,3 +99,23 @@ function oops(o,p){
     rect(o, p+70, 20, 30);
     circle(o+10, p +60, 20);
 }
+function mousePressed(){
+    for (let i = 0; i < 10; i++) {
+        boom.push(new Boom(mouseX, mouseY, random(10)));
+    }
+}
+class Boom{
+    constructor(x,y,s){
+        this.x = x;
+        this.y = y;
+        this.s = s;
+    }
+    display(){
+        fill(255,0,0);
+        textSize(this.s);
+        text('BOOM', this.x, this.y);
+    }
+    update(){
+       this.s= this.s + 1;
+    }
+    }
